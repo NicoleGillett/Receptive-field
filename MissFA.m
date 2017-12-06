@@ -68,7 +68,7 @@ for ij = 1:ns
     HIT(ij) = length(hit);
     
     miss = setdiff(M,hit); %find misses from the difference between hits and manual saccades
-    MISS(ij)= length(miss);
+    MISS(ij) = length(miss);
     
     s2 = saccades-1; %shift saccades
     h2 = intersect(miss,s2); %calculate new number of hits
@@ -77,22 +77,22 @@ for ij = 1:ns
     fa = setdiff(saccades,hit); %find false alarms from the difference between hits and automatic saccades
     FA(ij) = length(fa);
 end
-    %scale misses and false alarms
-    MissM=MISS./length(M);
-    FaM=FA./length(M);
-    
-    MissFa=MissM+FaM; %total number of misses and false alarms
-    
-    figure;
-    hold on
-    
-    plot(ST,MissM,'o-')
-    plot(ST,FaM,'o-')
-    plot(ST,MissFa,'o-')
-    xlabel('StepThre')
-    ylabel('/manual')
-    xlim([-inf inf])
-    ylim([-inf 2])
-    legend('MISS','FA','MISS+FA')
-    set(gca,'XScale','Log')
-    
+
+%scale misses and false alarms    
+MissM = MISS./length(M);  
+FaM = FA./length(M);
+     
+MissFa = MissM + FaM; %total number of misses and false alarms
+       
+figure;    
+hold on
+       
+plot(ST,MissM,'o-')    
+plot(ST,FaM,'o-')   
+plot(ST,MissFa,'o-')   
+xlabel('StepThre') 
+ylabel('/manual') 
+xlim([-inf inf])  
+ylim([-inf 2])
+legend('MISS','FA','MISS+FA')
+set(gca,'XScale','Log')
